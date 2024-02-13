@@ -6,6 +6,7 @@
 package Controller;
 
 import DB.OrderList;
+import Model.OrderDetails;
 
 /**
  *
@@ -70,43 +71,43 @@ public class OrderController {
 		return list.toArray();
 	}
 	
-	public static OrderDetails[] addUniqueValuesToArray(OrderDetails[] orderArray){
-		OrderDetails[] sortOrderArray = new OrderDetails[0];
-		for (int i = 0; i < orderArray.length; i++) {
-			boolean isExist = false;
-			for (int j = 0; j < sortOrderArray.length; j++) {
-                if (sortOrderArray[j].getCustomerId().equals(orderArray[i].getCustomerId())) {
-                    if (orderArray[i].getOrderStatus()!=View.CANCEL){
-						sortOrderArray[j].setOrderValue(sortOrderArray[j].getOrderValue()+orderArray[i].getOrderValue());
-					}
-                    isExist = true;
-                }
-            }
-            if (!isExist) {
-				OrderDetails[] tempSortOrderArray = new OrderDetails[sortOrderArray.length+1];
-                for (int j = 0; j < sortOrderArray.length; j++) {
-					tempSortOrderArray[j]=new OrderDetails(
-						sortOrderArray[j].getOrderId(),
-						sortOrderArray[j].getCustomerId(),
-						sortOrderArray[j].getCustomerName(),
-						sortOrderArray[j].getOrderStatus(),
-						sortOrderArray[j].getOrderQTY(),
-						sortOrderArray[j].getOrderValue()
-					);
-                }
-                tempSortOrderArray[tempSortOrderArray.length-1]= new OrderDetails(
-					orderArray[i].getOrderId(),
-					orderArray[i].getCustomerId(),
-					orderArray[i].getCustomerName(),
-					orderArray[i].getOrderStatus(),
-					orderArray[i].getOrderQTY(),
-					orderArray[i].getOrderValue()	
-                );
-                sortOrderArray=tempSortOrderArray;
-            }
-        }
-        return sortOrderArray;
-	}
+//	public static OrderDetails[] addUniqueValuesToArray(OrderDetails[] orderArray){
+//		OrderDetails[] sortOrderArray = new OrderDetails[0];
+//		for (int i = 0; i < orderArray.length; i++) {
+//			boolean isExist = false;
+//			for (int j = 0; j < sortOrderArray.length; j++) {
+//                if (sortOrderArray[j].getCustomerId().equals(orderArray[i].getCustomerId())) {
+//                    if (orderArray[i].getOrderStatus()!=View.CANCEL){
+//						sortOrderArray[j].setOrderValue(sortOrderArray[j].getOrderValue()+orderArray[i].getOrderValue());
+//					}
+//                    isExist = true;
+//                }
+//            }
+//            if (!isExist) {
+//				OrderDetails[] tempSortOrderArray = new OrderDetails[sortOrderArray.length+1];
+//                for (int j = 0; j < sortOrderArray.length; j++) {
+//					tempSortOrderArray[j]=new OrderDetails(
+//						sortOrderArray[j].getOrderId(),
+//						sortOrderArray[j].getCustomerId(),
+//						sortOrderArray[j].getCustomerName(),
+//						sortOrderArray[j].getOrderStatus(),
+//						sortOrderArray[j].getOrderQTY(),
+//						sortOrderArray[j].getOrderValue()
+//					);
+//                }
+//                tempSortOrderArray[tempSortOrderArray.length-1]= new OrderDetails(
+//					orderArray[i].getOrderId(),
+//					orderArray[i].getCustomerId(),
+//					orderArray[i].getCustomerName(),
+//					orderArray[i].getOrderStatus(),
+//					orderArray[i].getOrderQTY(),
+//					orderArray[i].getOrderValue()	
+//                );
+//                sortOrderArray=tempSortOrderArray;
+//            }
+//        }
+//        return sortOrderArray;
+//	}
 	
 	public static OrderDetails[] sortArray(OrderDetails[] sortOrderArray){
 		for (int i = 1; i < sortOrderArray.length; i++) {
@@ -129,29 +130,29 @@ public class OrderController {
 		return sortOrderArray;
 	}
 	
-	public static String getOrderDetail(String orderId){
-		String line="";
-		for (int i = 0; i < list.size() ; i++) {
-			if (orderId.equals(list.get(i).getOrderId())) {
-				String status = "";
-                switch (list.get(i).getOrderStatus()) {
-					case View.CANCEL:
-						status = "Cancel";
-						break;
-					case View.PREPARING:
-						status = "Preparing";
-						break;
-					case View.DELIVERED:
-						status = "Delivered";
-						break;
-				}
-                line = String.format("%1s%-10s%-14s%-15s%-10d%-14.2f%-10s", " ", list.get(i).getOrderId(), list.get(i).getCustomerId(), 
-								list.get(i).getCustomerName(), list.get(i).getOrderQTY(), list.get(i).getOrderValue(), status);
-                break;
-			}
-		}
-		return line;
-	}
+//	public static String getOrderDetail(String orderId){
+//		String line="";
+//		for (int i = 0; i < list.size() ; i++) {
+//			if (orderId.equals(list.get(i).getOrderId())) {
+//				String status = "";
+//                switch (list.get(i).getOrderStatus()) {
+//					case View.CANCEL:
+//						status = "Cancel";
+//						break;
+//					case View.PREPARING:
+//						status = "Preparing";
+//						break;
+//					case View.DELIVERED:
+//						status = "Delivered";
+//						break;
+//				}
+//                line = String.format("%1s%-10s%-14s%-15s%-10d%-14.2f%-10s", " ", list.get(i).getOrderId(), list.get(i).getCustomerId(), 
+//								list.get(i).getCustomerName(), list.get(i).getOrderQTY(), list.get(i).getOrderValue(), status);
+//                break;
+//			}
+//		}
+//		return line;
+//	}
 	
 	public static OrderDetails getOrder(int index){
 		return list.get(index);
