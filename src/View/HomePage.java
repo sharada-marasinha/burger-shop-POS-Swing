@@ -28,12 +28,7 @@ public class HomePage extends JFrame{
     private JLabel lblHome;
     
     public HomePage(){
-        setTitle("Home Page");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500,500);
-        setLocationRelativeTo(null);
-        setVisible(true);
-        setLayout(null);
+
         
         btnAddCustomer=new JButton("Add Customer");
         btnAddCustomer.setFont(new Font("",Font.PLAIN,15));
@@ -48,7 +43,7 @@ public class HomePage extends JFrame{
         btnPlaceOrder.setBounds(100, 150, 300, 40);
         btnPlaceOrder.setFocusable(false);
         btnPlaceOrder.addActionListener(evt ->{
-            
+            new PlaceOrderPage().setVisible(true);
         });
         
         btnSearch=new JButton("Search");
@@ -64,7 +59,7 @@ public class HomePage extends JFrame{
         btnViewOrder.setBounds(100, 250, 300, 40);
         btnViewOrder.setFocusable(false);
         btnViewOrder.addActionListener(evt ->{
-            
+            new ViewOrdersPage().setVisible(true);
         });
         
         btnUpdateOrder=new JButton("Update order");
@@ -93,6 +88,12 @@ public class HomePage extends JFrame{
         lblHome.setHorizontalAlignment(JLabel.CENTER);
         lblHome.setBackground(new Color(47,79,79));
         lblHome.setOpaque(true);
+        
+        setTitle("Home Page");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(500,500);
+        setLocationRelativeTo(null);
+        setLayout(null);
         
         
         add(lblHome);

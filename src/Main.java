@@ -1,5 +1,7 @@
 
 import View.HomePage;
+import View.PlaceOrderPage;
+import View.ViewOrdersPage;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +15,7 @@ import View.HomePage;
  */
 public class Main {
     public static void main(String[] args) {
-        new HomePage();
+        new HomePage().setVisible(true);
     }
 }
 //sample

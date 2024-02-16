@@ -14,18 +14,30 @@ import Model.OrderDetails;
  */
 public class OrderController {
     
+    public static double burgerPrice =500;
+    
     	// orders array
 	public static OrderList list  = new OrderList();
 	
 	// generate order Id
 	public static String generateOrderId() {
 		if (list.size()==0){
-			return "B0001";
+			return "O0001";
 		}
 		String lastOrderId = list.get(list.size()-1).getOrderId();
-		int number = Integer.parseInt(lastOrderId.split("B")[1]); //1
+		int number = Integer.parseInt(lastOrderId.split("O")[1]); //1
 		number++;//2
-		return String.format("B%04d",number); //printf("",) //B0002
+		return String.format("O%04d",number); //printf("",) //B0002
+	}
+        
+        public static String generateCustomerId() {
+		if (list.size()==0){
+			return "C0001";
+		}
+		String lastCustomerId = list.get(list.size()-1).getCustomerId();
+		int number = Integer.parseInt(lastCustomerId.split("C")[1]); //1
+		number++;//2
+		return String.format("C%04d",number); //printf("",) //B0002
 	}
 
 	// validation Customer ID
