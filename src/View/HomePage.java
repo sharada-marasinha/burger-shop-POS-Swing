@@ -28,8 +28,10 @@ public class HomePage extends JFrame{
     private JLabel lblHome;
     
     public HomePage(){
-
-        
+        initComponents();
+    }
+    private void initComponents(){
+    
         btnAddCustomer=new JButton("Add Customer");
         btnAddCustomer.setFont(new Font("",Font.PLAIN,15));
         btnAddCustomer.setBounds(100, 100, 300, 40);
@@ -51,7 +53,7 @@ public class HomePage extends JFrame{
         btnSearch.setBounds(100, 200, 300, 40);
         btnSearch.setFocusable(false);
         btnSearch.addActionListener(evt ->{
-            
+            new SearchMenuForm().setVisible(true);
         });
         
         btnViewOrder=new JButton("View Orders");

@@ -39,7 +39,7 @@ public class OrderDetails {
 	public void setOrderStatus(int orderStatus){ this.orderStatus=orderStatus; }
 	public void setOrderQTY(int orderQTY){ this.orderQTY=orderQTY; }
 	public void setOrderValue(double orderValue){ this.orderValue=orderValue; }
-	public String toString(){
-		return "{ "+getOrderId()+" - "+getCustomerId()+" - "+getCustomerName()+" - "+getOrderStatus()+" - "+getOrderQTY()+" - "+getOrderValue()+" }";
-	}
+//	public String toString(){
+//		return "{ "+getOrderId()+" - "+getCustomerId()+" - "+getCustomerName()+" - "+getOrderStatus()+" - "+getOrderQTY()+" - "+getOrderValue()+" }";
+//	}
 }

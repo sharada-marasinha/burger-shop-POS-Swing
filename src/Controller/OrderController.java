@@ -142,29 +142,14 @@ public class OrderController {
 		return sortOrderArray;
 	}
 	
-//	public static String getOrderDetail(String orderId){
-//		String line="";
-//		for (int i = 0; i < list.size() ; i++) {
-//			if (orderId.equals(list.get(i).getOrderId())) {
-//				String status = "";
-//                switch (list.get(i).getOrderStatus()) {
-//					case View.CANCEL:
-//						status = "Cancel";
-//						break;
-//					case View.PREPARING:
-//						status = "Preparing";
-//						break;
-//					case View.DELIVERED:
-//						status = "Delivered";
-//						break;
-//				}
-//                line = String.format("%1s%-10s%-14s%-15s%-10d%-14.2f%-10s", " ", list.get(i).getOrderId(), list.get(i).getCustomerId(), 
-//								list.get(i).getCustomerName(), list.get(i).getOrderQTY(), list.get(i).getOrderValue(), status);
-//                break;
-//			}
-//		}
-//		return line;
-//	}
+	public static OrderDetails getOrderDetail(String orderId){
+		String line="";
+		for (int i = 0; i < list.size() ; i++) {
+			if (orderId.equals(list.get(i).getOrderId())) {
+                                return list.get(i);
+			}
+		}		return null;
+	}
 	
 	public static OrderDetails getOrder(int index){
 		return list.get(index);
