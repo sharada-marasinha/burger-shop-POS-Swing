@@ -69,7 +69,7 @@ public class HomePage extends JFrame{
         btnUpdateOrder.setBounds(100, 300, 300, 40);
         btnUpdateOrder.setFocusable(false);
         btnUpdateOrder.addActionListener(evt ->{
-            
+            new UpdateOrderForm().setVisible(true);
         });
         
         btnExit=new JButton("EXIT");

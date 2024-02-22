@@ -159,6 +159,14 @@ public class OrderController {
 	public static int size(){
 		return list.size();
 	}
+        
+        public static int serchIndex(OrderDetails obj){
+            return list.search(obj);
+        }
+        
+        public static void updateOrder(int index,OrderDetails obj){
+            list.add(index, obj);
+        }
 	
     
 }

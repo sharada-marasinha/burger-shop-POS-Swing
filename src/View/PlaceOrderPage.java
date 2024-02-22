@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author shara
@@ -122,7 +124,6 @@ public class PlaceOrderPage extends JFrame{
         btnPlaceOrder.setBounds(300, 400, 150, 40);
         btnPlaceOrder.setFocusable(false);
         btnPlaceOrder.addActionListener(evt ->{
-            System.out.println("Order Placed");
          OrderDetails orderObj = new OrderDetails(
                     txtOrderId.getText(),
                     txtCustomerId.getText(),
@@ -131,10 +132,15 @@ public class PlaceOrderPage extends JFrame{
                     Integer.parseInt(txtQty.getText()),
                     qty
             );
-            System.out.println(orderObj);
+        int result = JOptionPane.showConfirmDialog(null, "Do you want to proceed this order?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Order Placed Succsess", "Alert", JOptionPane.INFORMATION_MESSAGE);
             OrderController.add(orderObj);
-            clearTxt();
             setNextId();
+        } else {
+             JOptionPane.showMessageDialog(null, "Cancel place Order", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+            clearTxt(); 
         });
         
         

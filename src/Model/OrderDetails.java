@@ -30,7 +30,16 @@ public class OrderDetails {
 	public String getOrderId(){ return orderId; }
 	public String getCustomerId(){ return customerId; }
 	public String getCustomerName(){ return customerName; }
-	public int getOrderStatus(){ return orderStatus; }
+	public String getOrderStatus(){ 
+            switch(this.orderStatus){
+                case 1:{return "PENDING..";}
+                case 2:{return "DELEVERD";}
+                case 3:{return "CANCELED";}
+                default:return "NuN";
+            }
+            
+        
+        }
 	public int getOrderQTY(){ return orderQTY; }
 	public double getOrderValue(){ return orderValue; }
 	
@@ -39,7 +48,7 @@ public class OrderDetails {
 	public void setOrderStatus(int orderStatus){ this.orderStatus=orderStatus; }
 	public void setOrderQTY(int orderQTY){ this.orderQTY=orderQTY; }
 	public void setOrderValue(double orderValue){ this.orderValue=orderValue; }
-//	public String toString(){
-//		return "{ "+getOrderId()+" - "+getCustomerId()+" - "+getCustomerName()+" - "+getOrderStatus()+" - "+getOrderQTY()+" - "+getOrderValue()+" }";
-//	}
+	public String toString(){
+		return "{ "+getOrderId()+" - "+getCustomerId()+" - "+getCustomerName()+" - "+getOrderStatus()+" - "+getOrderQTY()+" - "+getOrderValue()+" }";
+	}
 }
